@@ -68,7 +68,7 @@ def pasteCheck(account):
         print('\n\t{0}Bad account'.format(RED))
     elif prcode == '429':
         print('Hit rate limit, increasing sleep time by .3s')
-        rlimit = rlimit + .3
+        rlimit += .3
         time.sleep(rlimit)
         pasteCheck(account)
     else:
