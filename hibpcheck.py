@@ -1,5 +1,6 @@
 #! /usr/bin/python3
 
+from hibpapikey import apikey
 import argparse
 import requests
 import time
@@ -14,17 +15,17 @@ BLU = '\033[94m'
 GRE = '\033[92m'
 END = '\033[0m'
 
-headers = {'User-Agent': 'Python HaveIBeenPwned Checker'}
-breach = 'https://haveibeenpwned.com/api/v2/breachedaccount/'
-paste = 'https://haveibeenpwned.com/api/v2/pasteaccount/'
-unverified = '?includeUnverified=true'
+headers = {'User-Agent': 'Python HaveIBeenPwned Checker', 'hibp-api-key': apikey}
+breach = 'https://haveibeenpwned.com/api/v3/breachedaccount/'
+paste = 'https://haveibeenpwned.com/api/v3/pasteaccount/'
+untrunc = '?truncateResponse=false'
 account = args.account
 accountloc = args.accountloc
-rlimit = 1
+rlimit = 1.6
 
 def breachCheck(account):
     breachr = requests.get(
-        breach + account + unverified,
+        breach + account + untrunc,
         headers=headers
         )
 

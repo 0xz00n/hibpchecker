@@ -1,6 +1,12 @@
 # hibpchecker
 Checks email addresses, singularly or within lists, against haveibeenpwned
 
+# API Key
+API key must be placed into a file named `hibpapikey.py` with the following format:
+```
+apikey = "apikeygoeshere"
+```
+
 ### Help Output
 ```
 $ ./hibpcheck.py --help
